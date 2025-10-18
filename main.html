@@ -1,16 +1,247 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Adoption Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        input[type="text"],
+        select {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+        
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        input[type="text"]::placeholder {
+            color: #999;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            text-transform: none;
+            letter-spacing: normal;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        
+        select[multiple] {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            min-height: 120px;
+        }
+        
+        select[multiple]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        select[multiple] option {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        
+        select[multiple] option:checked {
+            background: linear-gradient(#667eea, #667eea);
+            background-color: #667eea !important;
+            color: white;
+        }
+        
+        button[type="submit"] {
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        
+        button[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        button[type="submit"]:active {
+            transform: translateY(-1px);
+        }
+        
+        .form-hint {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+    </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
-
+    <div class="container">
+        <h1>🐕 Dog Adoption</h1>
+        <p class="subtitle">Help Ritesh find his perfect furry friend!</p>
+        
+        <form>
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Name"
+                    required
+                >
+            </div>
+            
+            <!-- Phone Number Field -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input 
+                    type="text" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="Phone Number"
+                    required
+                >
+            </div>
+            
+            <!-- Address Field -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input 
+                    type="text" 
+                    id="address" 
+                    name="address" 
+                    placeholder="Address"
+                    required
+                >
+            </div>
+            
+            <!-- Checkbox: Have you ever lived with a Dog before? -->
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input 
+                        type="checkbox" 
+                        id="checkbox" 
+                        name="checkbox" 
+                        value="Have you ever lived with a Dog before?"
+                    >
+                    <label for="checkbox">Have you ever lived with a Dog before?</label>
+                </div>
+            </div>
+            
+            <!-- Multi-Select: Preferred Breeds -->
+            <div class="form-group">
+                <label for="multiSelect">Please select your preferred breeds</label>
+                <select 
+                    id="multiSelect" 
+                    name="multiSelect" 
+                    multiple
+                    required
+                >
+                    <option value="Labrador">Labrador Retriever</option>
+                    <option value="GoldenRetriever">Golden Retriever</option>
+                    <option value="GermanShepherd">German Shepherd</option>
+                    <option value="Bulldog">Bulldog</option>
+                    <option value="Poodle">Poodle</option>
+                    <option value="Beagle">Beagle</option>
+                </select>
+                <p class="form-hint">Hold Ctrl/Cmd to select multiple breeds</p>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" id="submit" value="Submit">Submit</button>
+        </form>
+    </div>
 </body>
-
 </html>
